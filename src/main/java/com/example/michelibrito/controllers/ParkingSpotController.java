@@ -70,4 +70,7 @@ public class ParkingSpotController {
         parkingSpotService.delete(parkingSpotModelOptional.get());
         return ResponseEntity.status(HttpStatus.OK).body("Parking Spot deleted successfully");
     }
+
+    @PutMapping()
+
 }
