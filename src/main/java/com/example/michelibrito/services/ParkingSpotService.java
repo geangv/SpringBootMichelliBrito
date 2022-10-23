@@ -2,7 +2,9 @@ package com.example.michelibrito.services;
 
 import com.example.michelibrito.models.ParkingSpotModel;
 import com.example.michelibrito.repositories.ParkingSpotRepository;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Pageable;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -35,8 +37,9 @@ public class ParkingSpotService {
         return parkingSpotRepository.existsByApartmentAndBlock(apartment, block);
     }
 
-    public List<ParkingSpotModel> findAll(){
-        return parkingSpotRepository.findAll();
+    public Page<ParkingSpotModel> findAll(Pageable pageable) {
+        return parkingSpotRepository.findAll(pageable);
+
     }
 
     public Optional<ParkingSpotModel> findById(UUID id){
